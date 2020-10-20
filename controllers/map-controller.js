@@ -1,5 +1,5 @@
 
-const createMap = async (row, col) => {
+const createMap = (row, col) => {
   let outerArray = [];
   for (let i = 0; i < row; i++) {
     let innerArray = [];
@@ -11,9 +11,9 @@ const createMap = async (row, col) => {
   return outerArray;
 }
 
-const fillMap = async (mapSize, val) => {
-  let rows = mapSize;
-  let cols = mapSize;
+const fillMap = (map, val, count) => {
+  let rows = map.length;
+  let cols = map[0].length;
   while (count) {
     let y = floorRand(rows);
     let x = floorRand(cols);
@@ -25,11 +25,11 @@ const fillMap = async (mapSize, val) => {
   return map
 };
 
-const floorRand = async (scale) => {
+const floorRand = (scale) => {
   return Math.floor(Math.random() * scale);
 };
 
-const  valsAdjacentCounts = async ( map, val) => {
+const  adjacentCellsValues = ( map, val) => {
   for (let i = 0; i < map.length; i++) {
     for (let j = 0; j < map[0].length; j++) {
       if (map[i][j] === val) {
@@ -40,7 +40,7 @@ const  valsAdjacentCounts = async ( map, val) => {
   return map;
 }
 
-const addOneNestedArrAdjacents = async ( map, i,j, val) => {
+const addOneNestedArrAdjacents = ( map, i,j, val) => {
   let iList = [i - 1, i, i + 1];
   let jList = [j - 1, j, j + 1];
   for (let a of iList) {
@@ -59,5 +59,5 @@ const addOneNestedArrAdjacents = async ( map, i,j, val) => {
 module.exports = {
   createMap,
   fillMap,
-  valsAdjacentCounts
+  adjacentCellsValues
 }

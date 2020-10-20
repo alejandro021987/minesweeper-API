@@ -4,6 +4,9 @@ const LEVEL = {
   ADVANCED: 2
 };
 
+const BOMB = "*";
+
 module.exports = {
-  LEVEL
+  LEVEL,
+  BOMB
 };
