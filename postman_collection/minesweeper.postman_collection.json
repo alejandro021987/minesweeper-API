@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "fb28a40a-e571-4c73-9ce8-5024621eca89",
+		"name": "minesweeper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"peter pan\",\n    \"email\":\"peter23@gmail.com\",\n    \"password\":\"assdfqw112\",\n    \"last_level\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/user/signup",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create user ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"peter pan\",\n    \"email\":\"peter23@gmail.com\",\n    \"password\":\"assdfqw112\",\n    \"last_level\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "230"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e6-9cVaX6rq2hVMwSwM4eS/2bwxEmo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Oct 2020 04:16:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"last_level\": \"0\",\n    \"status\": \"0\",\n    \"_id\": \"5f8e64b035b52f6e3641f42b\",\n    \"name\": \"peter pan\",\n    \"email\": \"peter23@gmail.com\",\n    \"password\": \"$2b$10$Prp3zNDj9XDqHlog1D3VOudaeRxkpDNOV90tqa9u3soQ7suHtgpTy\",\n    \"created\": \"2020-10-20T04:16:48.225Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"peter23@gmail.com\",\n    \"password\": \"assdfqw112\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/user/login",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"peter23@gmail.com\",\n    \"password\": \"assdfqw112\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "491"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1eb-LxtO0jljpcXThC6WlBdVLcBfMMw\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Oct 2020 04:40:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Auth successful\",\n    \"user\": {\n        \"last_level\": \"0\",\n        \"status\": \"0\",\n        \"_id\": \"5f8e64b035b52f6e3641f42b\",\n        \"name\": \"peter pan\",\n        \"email\": \"peter23@gmail.com\",\n        \"password\": \"$2b$10$Prp3zNDj9XDqHlog1D3VOudaeRxkpDNOV90tqa9u3soQ7suHtgpTy\",\n        \"created\": \"2020-10-20T04:16:48.225Z\",\n        \"__v\": 0\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldGVyMjNAZ21haWwuY29tIiwidXNlcklkIjoiNWY4ZTY0YjAzNWI1MmY2ZTM2NDFmNDJiIiwiaWF0IjoxNjAzMTY4ODUxLCJleHAiOjE2MDMxNzI0NTF9.QTycE9ZrAeQd9kk0gUwd5rOJP600Y5eSZ3PFuOiqPk4\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldGVyMjNAZ21haWwuY29tIiwidXNlcklkIjoiNWY4ZTY0YjAzNWI1MmY2ZTM2NDFmNDJiIiwiaWF0IjoxNjAzMTY5NDg0LCJleHAiOjE2MDMxNzMwODR9.FcbXxh79HBaAPgejLjGx8lnE_OXYvaVzy2faf3qOHqU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"last_level\": \"1\",\n    \"status\": \"0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/user/:user_id",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"user",
+						":user_id"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": "5f8e64b035b52f6e3641f42b"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update user OK",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"last_level\": \"1\",\n    \"status\": \"0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/user/:user_id",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"user",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "5f8e64b035b52f6e3641f42b"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1f-gkdg2YEKJ8z60IPzLCdcpLli7s0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Oct 2020 04:53:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"last_level\": \"1\",\n    \"status\": \"0\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create map",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mapSize\": 10,\n    \"bombCount\": 13\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/map/create-map",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"map",
+						"create-map"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

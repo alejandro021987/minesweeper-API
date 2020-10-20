@@ -1,0 +1,27 @@
+{
+  "name": "APIminesweeper",
+  "version": "1.0.0",
+  "description": "REST API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "Mongodb"
+  ],
+  "author": "Alejandro Avalo",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "envdot": "0.0.3",
+    "eslint": "^7.9.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.7",
+    "nodemon": "^1.19.4"
+  }
+}
