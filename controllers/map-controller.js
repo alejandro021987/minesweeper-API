@@ -56,8 +56,40 @@ const addOneNestedArrAdjacents = ( map, i,j, val) => {
   return map;
 }
 
+const recursionClick = (target, row, column) => {
+  target.id = `${row}_${column}_`;
+  let rowList = [row - 1, row, row + 1];
+  let colList = [column - 1, column, column + 1];
+  for (let i of rowList) {
+    for (let j of colList) {
+      setImmediate(() => {
+        if (document.getElementById(`${i}_${j}`))
+          document.getElementById(`${i}_${j}`).click();
+      });
+    }
+  }
+  return;
+}
+
+const endGame = (target) => {
+  endMineSweeperGame = true;
+  target.style.backgroundColor = "black";
+  let cols = target.parentElement.children.length;
+  let rows = target.parentElement.parentElement.children.length;
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (document.getElementById(`${i}_${j}`))
+        document.getElementById(`${i}_${j}`).click();
+    }
+  }
+  return;
+}
+
+
 module.exports = {
   createMap,
   fillMap,
-  adjacentCellsValues
+  adjacentCellsValues,
+  recursionClick,
+  endGame
 }

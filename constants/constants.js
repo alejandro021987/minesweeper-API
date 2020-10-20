@@ -3,10 +3,12 @@ const LEVEL = {
   MEDIUM: 1,
   ADVANCED: 2
 };
-
-const BOMB = "*";
-
+const messages = {
+  BOMB: "*",
+  WIN_MESSAGE: "* You Win! *",
+  LOSE_MESSAGE: "* Game Over *"
+}
 module.exports = {
   LEVEL,
-  BOMB
+  messages
 };
