@@ -50,3 +50,5 @@ Thumbs.db
 
 # ENV
 .env
+
+launch.json
