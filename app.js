@@ -19,6 +19,7 @@ app.use('/map',mapRoute)
 const mongoOptions = { useNewUrlParser: true };
 if (process.env.MONGO_DB_USER) {
     mongoOptions.useUnifiedTopology = true;
+    mongoOptions.useNewUrlParser = true;
     mongoOptions.user = process.env.MONGO_DB_USER;
     mongoOptions.pass = process.env.MONGO_DB_PASS;
   }
