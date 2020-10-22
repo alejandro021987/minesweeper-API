@@ -1,16 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const MapModel = require('../models/MapModel');
 const mapController = require('../controllers/map-controller');
+const userController = require('../controllers/user-controller');
 const constants = require('../constants/constants');
-
+const jwt_decode = require('jwt-decode'); 
 
 router.post('/create-map',async (req,res)=>{
     try {
-        req.map = mapController.createMap(req.body.mapSize, req.body.mapSize);
-        req.map = mapController.fillMap(req.map, constants.messages.BOMB , req.body.bombCount );
-        req.map = mapController.adjacentCellsValues(req.map, constants.messages.BOMB);
-        req.selectedCells = 1;
+        let { mapSize, bombCount } = req.body;
+        let cells = mapController.createMap(mapSize, mapSize);
+        cells = mapController.fillMap(cells, constants.messages.BOMB , req.body.bombCount );
+        cells = mapController.adjacentCellsValues(cells, constants.messages.BOMB);
+        req.map = await mapController.saveMap(mapSize, bombCount, cells);
+
+        var userProfile = jwt_decode(req.headers.authorization);
+        await userController.updateUser(userProfile.userId, {map_id: req.map._id});
+       // UserModel.updateMany({_id : userProfile.userId},{$set : {map_id: req.map._id}}).exec();
         res.json(req.map);
     } catch (error) {
         res.json({message : error})
@@ -18,10 +23,10 @@ router.post('/create-map',async (req,res)=>{
 });
 
 router.post('/selected-cell',async (req,res)=>{
-    let { row, column, incCellsClicked, value } = req.props;
+    let { row, column, selectedCells, value } = req.body.props;
     let { clicked, flag } = req.map.state;
     if (!flag) mapController.setState({ clicked: true });
-    if (!clicked) incCellsClicked();
+    if (!clicked) selectedCells();
     if (!endMineSweeperGame) {
       // Empty cell click --> recursion
       if (value === "" && target.id === `${row}_${column}`)
@@ -46,4 +51,28 @@ router.post('/selected-cells-count',async (req,res)=>{
     }
 });
 
+router.post('/selected-cells-count',async (req,res)=>{
+    try {
+        let { mapSize, bombCount, selectedCells } = req.map.state;
+        let safeCells = mapSize * mapSize - bombCount;
+        mapController.setState({
+            selectedCells: selectedCells + 1
+        });
+        if (selectedCells >= safeCells) 
+        res.json({message : constants.messages.WIN_MESSAGE });
+    } catch (error) {
+        res.json({message : error})
+    }
+});
+
+router.post('/update-map',async (req,res)=>{
+    try {
+        let { mapSize, bombCount, selectedCells, cells, _id } = req.body;
+        req.map = await mapController.saveMap(mapSize, bombCount, cells, selectedCells, _id);
+        res.status(201).json(req.map);
+
+    } catch (error) {
+        res.json({message : error})
+    }
+});
 module.exports = router;

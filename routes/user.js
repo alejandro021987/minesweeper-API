@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt')
 const UserModel = require('../models/UserModel');
+const userController = require('../controllers/user-controller');
 var jwt = require('jsonwebtoken');
 const checkAuth = require('../middleware/checkAuth');
 
@@ -36,13 +37,13 @@ router.post('/signup',async (req,res)=>{
 });
 
 //UPDATE USER INFO
-router.put('/:user_id',checkAuth,(req,res)=>{
-    UserModel.updateMany({_id : req.params.user_id},{$set : req.body}).exec()
-    .then(()=>{
-        res.json(req.body)
-    }).catch(err =>{
-        res.json({message : err})
-    })
+router.put('/:user_id',checkAuth, async (req,res)=>{
+    try {
+        await userController.updateUser(req.params.user_id, req.body);
+        res.status(200).json({ mesage:"user updated"});
+    } catch (error) {
+        res.status(500).json({message : error})
+    }
 });
 
 //DELETE USER

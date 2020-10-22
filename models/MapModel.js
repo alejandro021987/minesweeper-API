@@ -12,7 +12,7 @@ const MapSchema = mongoose.Schema({
     bombCount: Number,
     cells: [],
     selectedCells: Number,
-    state: { type: stateSchema },
+    //state: { type: stateSchema },
     date_modified: { type: Date, default: Date.now },
 })
 
