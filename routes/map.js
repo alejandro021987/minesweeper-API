@@ -5,6 +5,10 @@ const userController = require('../controllers/user-controller');
 const constants = require('../constants/constants');
 const jwt_decode = require('jwt-decode'); 
 
+router.get('/', async (req,res)=>{
+    res.json('**** Welcome to Minesweeper-api ****');
+}); 
+
 router.post('/create-map',async (req,res)=>{
     try {
         let { mapSize, bombCount } = req.body;
@@ -15,7 +19,6 @@ router.post('/create-map',async (req,res)=>{
 
         var userProfile = jwt_decode(req.headers.authorization);
         await userController.updateUser(userProfile.userId, {map_id: req.map._id});
-       // UserModel.updateMany({_id : userProfile.userId},{$set : {map_id: req.map._id}}).exec();
         res.json(req.map);
     } catch (error) {
         res.json({message : error})

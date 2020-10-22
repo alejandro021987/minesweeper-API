@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"peter pan\",\n    \"email\":\"peter23@gmail.com\",\n    \"password\":\"assdfqw112\",\n    \"last_level\": 1\n}",
+					"raw": "{\n    \"name\":\"Juan Gonzalez\",\n    \"email\":\"jg1@gmail.com\",\n    \"password\":\"assdfqw112\",\n    \"last_level\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,9 +20,9 @@
 					}
 				},
 				"url": {
-					"raw": "{{local_url}}/user/signup",
+					"raw": "{{test_url}}/user/signup",
 					"host": [
-						"{{local_url}}"
+						"{{test_url}}"
 					],
 					"path": [
 						"user",
@@ -103,7 +103,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"peter23@gmail.com\",\n    \"password\": \"assdfqw112\"\n}",
+					"raw": "{\n    \"email\": \"mitest@email.com\",\n    \"password\": \"assdfqw112\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -195,7 +195,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldGVyMjNAZ21haWwuY29tIiwidXNlcklkIjoiNWY4ZTY0YjAzNWI1MmY2ZTM2NDFmNDJiIiwiaWF0IjoxNjAzMTY5NDg0LCJleHAiOjE2MDMxNzMwODR9.FcbXxh79HBaAPgejLjGx8lnE_OXYvaVzy2faf3qOHqU",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldGVyMjMzQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVmOGY5YmI3ODFiZmVhNDY3MDZjOGY5NiIsImlhdCI6MTYwMzM1MzUyOCwiZXhwIjoxNjAzMzU3MTI4fQ.3iVpl9Ng6lcxnafoxihP9pWuQqEgFeRitfYSw__PUYE",
 							"type": "string"
 						}
 					]
@@ -204,7 +204,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"last_level\": \"1\",\n    \"status\": \"0\"\n}",
+					"raw": "{\n    \"last_level\": \"2\",\n    \"email\": \"mitest@email.com\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -223,7 +223,7 @@
 					"variable": [
 						{
 							"key": "user_id",
-							"value": "5f8e64b035b52f6e3641f42b"
+							"value": "5f8f9bb781bfea46706c8f96"
 						}
 					]
 				}
@@ -301,6 +301,16 @@
 		{
 			"name": "create map",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBldGVyMjMzQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVmOGY5YmI3ODFiZmVhNDY3MDZjOGY5NiIsImlhdCI6MTYwMzM0NTM5MiwiZXhwIjoxNjAzMzQ4OTkyfQ.QqsgEk5Ki1lm4LHzoTQEOuqqVfsSbWVBgSf2yqgrCz4",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -320,6 +330,156 @@
 					"path": [
 						"map",
 						"create-map"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create map ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mapSize\": 10,\n    \"bombCount\": 13\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/map/create-map",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"map",
+								"create-map"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "420"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a4-+twxCfpV2sARLr4lmVYhlE3VDhE\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 07:41:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"cells\": [\n        [\n            1,\n            1,\n            1,\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            2,\n            1\n        ],\n        [\n            1,\n            \"*\",\n            1,\n            \"\",\n            \"\",\n            \"\",\n            1,\n            \"*\",\n            2,\n            \"*\"\n        ],\n        [\n            2,\n            2,\n            1,\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            2,\n            1\n        ],\n        [\n            \"*\",\n            1,\n            \"\",\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            1,\n            \"\"\n        ],\n        [\n            2,\n            3,\n            2,\n            1,\n            \"\",\n            \"\",\n            2,\n            \"*\",\n            2,\n            \"\"\n        ],\n        [\n            1,\n            \"*\",\n            \"*\",\n            2,\n            1,\n            \"\",\n            2,\n            \"*\",\n            2,\n            \"\"\n        ],\n        [\n            1,\n            2,\n            3,\n            \"*\",\n            3,\n            2,\n            2,\n            1,\n            1,\n            \"\"\n        ],\n        [\n            \"\",\n            \"\",\n            1,\n            3,\n            \"*\",\n            \"*\",\n            1,\n            \"\",\n            \"\",\n            \"\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            2,\n            \"*\",\n            3,\n            2,\n            1,\n            1,\n            \"\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            1,\n            1,\n            \"*\",\n            1,\n            \"\"\n        ]\n    ],\n    \"_id\": \"5f913796055f03765603fe27\",\n    \"mapSize\": 10,\n    \"bombCount\": 13,\n    \"selectedCells\": 0,\n    \"date_modified\": \"2020-10-22T07:41:10.271Z\",\n    \"__v\": 0\n}"
+				},
+				{
+					"name": "create map OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mapSize\": 10,\n    \"bombCount\": 13\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/map/create-map",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"map",
+								"create-map"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "282"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11a-m+kYW6iLKvmE4+cG6ea93w1BSLA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Oct 2020 09:19:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    [\n        1,\n        2,\n        3,\n        \"*\",\n        2,\n        \"*\",\n        1,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        1,\n        \"*\",\n        \"*\",\n        2,\n        3,\n        2,\n        2,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        2,\n        3,\n        2,\n        1,\n        2,\n        \"*\",\n        3,\n        1,\n        1,\n        1\n    ],\n    [\n        \"*\",\n        1,\n        \"\",\n        \"\",\n        2,\n        \"*\",\n        \"*\",\n        1,\n        1,\n        \"*\"\n    ],\n    [\n        2,\n        2,\n        1,\n        \"\",\n        1,\n        2,\n        2,\n        1,\n        1,\n        1\n    ],\n    [\n        1,\n        \"*\",\n        1,\n        1,\n        1,\n        1,\n        \"\",\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        1,\n        1,\n        1,\n        1,\n        \"*\",\n        2,\n        1,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        \"\",\n        \"\",\n        \"\",\n        1,\n        2,\n        \"*\",\n        1,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        1,\n        1,\n        1,\n        \"\",\n        1,\n        1\n    ],\n    [\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        1,\n        \"*\"\n    ]\n]"
+				}
+			]
+		},
+		{
+			"name": "update map",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cells\": [\n        [\n            \"f\",\n            \"f\",\n            \"f\",\n            \"\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\"\n        ],\n        [\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"*\",\n            2,\n            \"f\",\n            \"f\",\n            \"*\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            \"*\",\n            2,\n            2,\n            \"*\",\n            3,\n            \"*\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            1,\n            2,\n            2,\n            3,\n            1\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            2,\n            2,\n            2,\n            \"*\",\n            1,\n            \"\"\n        ],\n        [\n            1,\n            1,\n            1,\n            1,\n            \"*\",\n            \"*\",\n            3,\n            2,\n            1,\n            \"\"\n        ],\n        [\n            1,\n            \"*\",\n            1,\n            1,\n            2,\n            3,\n            \"*\",\n            1,\n            1,\n            1\n        ],\n        [\n            1,\n            1,\n            1,\n            1,\n            1,\n            3,\n            2,\n            2,\n            1,\n            \"*\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            \"*\",\n            2,\n            \"*\",\n            1,\n            1,\n            1\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            2,\n            1,\n            1,\n            \"\",\n            \"\"\n        ]\n    ],\n    \"_id\": \"5f91303b3adf766334979793\",\n    \"mapSize\": 10,\n    \"bombCount\": 13,\n    \"selectedCells\": 11,\n    \"date_modified\": \"2020-10-22T07:09:47.542Z\",\n    \"__v\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/map/update-map",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"map",
+						"update-map"
 					]
 				}
 			},
@@ -384,6 +544,232 @@
 					],
 					"cookie": [],
 					"body": "[\n    [\n        1,\n        2,\n        3,\n        \"*\",\n        2,\n        \"*\",\n        1,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        1,\n        \"*\",\n        \"*\",\n        2,\n        3,\n        2,\n        2,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        2,\n        3,\n        2,\n        1,\n        2,\n        \"*\",\n        3,\n        1,\n        1,\n        1\n    ],\n    [\n        \"*\",\n        1,\n        \"\",\n        \"\",\n        2,\n        \"*\",\n        \"*\",\n        1,\n        1,\n        \"*\"\n    ],\n    [\n        2,\n        2,\n        1,\n        \"\",\n        1,\n        2,\n        2,\n        1,\n        1,\n        1\n    ],\n    [\n        1,\n        \"*\",\n        1,\n        1,\n        1,\n        1,\n        \"\",\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        1,\n        1,\n        1,\n        1,\n        \"*\",\n        2,\n        1,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        \"\",\n        \"\",\n        \"\",\n        1,\n        2,\n        \"*\",\n        1,\n        \"\",\n        \"\",\n        \"\"\n    ],\n    [\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        1,\n        1,\n        1,\n        \"\",\n        1,\n        1\n    ],\n    [\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        \"\",\n        1,\n        \"*\"\n    ]\n]"
+				},
+				{
+					"name": "update map ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cells\": [\n        [\n            \"f\",\n            \"f\",\n            \"f\",\n            \"\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\"\n        ],\n        [\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"f\",\n            \"*\",\n            2,\n            \"f\",\n            \"f\",\n            \"*\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            \"*\",\n            2,\n            2,\n            \"*\",\n            3,\n            \"*\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            1,\n            2,\n            2,\n            3,\n            1\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            2,\n            2,\n            2,\n            \"*\",\n            1,\n            \"\"\n        ],\n        [\n            1,\n            1,\n            1,\n            1,\n            \"*\",\n            \"*\",\n            3,\n            2,\n            1,\n            \"\"\n        ],\n        [\n            1,\n            \"*\",\n            1,\n            1,\n            2,\n            3,\n            \"*\",\n            1,\n            1,\n            1\n        ],\n        [\n            1,\n            1,\n            1,\n            1,\n            1,\n            3,\n            2,\n            2,\n            1,\n            \"*\"\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            \"*\",\n            2,\n            \"*\",\n            1,\n            1,\n            1\n        ],\n        [\n            \"\",\n            \"\",\n            \"\",\n            1,\n            1,\n            2,\n            1,\n            1,\n            \"\",\n            \"\"\n        ]\n    ],\n    \"_id\": \"5f91303b3adf766334979793\",\n    \"mapSize\": 10,\n    \"bombCount\": 13,\n    \"selectedCells\": 11,\n    \"date_modified\": \"2020-10-22T07:09:47.542Z\",\n    \"__v\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/map/update-map",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"map",
+								"update-map"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "285"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11d-xbRJcXadU3omISSdiFTzJSaP6dM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 07:43:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"n\": 1,\n    \"nModified\": 1,\n    \"opTime\": {\n        \"ts\": \"6886346946596831234\",\n        \"t\": 4\n    },\n    \"electionId\": \"7fffffff0000000000000004\",\n    \"ok\": 1,\n    \"$clusterTime\": {\n        \"clusterTime\": \"6886346946596831234\",\n        \"signature\": {\n            \"hash\": \"DwsVL1imtAnW7Rg6qH5TJYgHVR8=\",\n            \"keyId\": \"6885556402031427587\"\n        }\n    },\n    \"operationTime\": \"6886346946596831234\"\n}"
+				}
+			]
+		},
+		{
+			"name": "welcome",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1pdGVzdEBlbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjhmOWJiNzgxYmZlYTQ2NzA2YzhmOTYiLCJpYXQiOjE2MDMzNTQ2NzEsImV4cCI6MTYwMzM1ODI3MX0.xwRM4fHcGMlWgwz0yCP6ejWZfROqRrMV-OEvdUo0Ejc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local_url}}/map/",
+					"host": [
+						"{{local_url}}"
+					],
+					"path": [
+						"map",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create user ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"peter pan\",\n    \"email\":\"peter23@gmail.com\",\n    \"password\":\"assdfqw112\",\n    \"last_level\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "230"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e6-9cVaX6rq2hVMwSwM4eS/2bwxEmo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 20 Oct 2020 04:16:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"last_level\": \"0\",\n    \"status\": \"0\",\n    \"_id\": \"5f8e64b035b52f6e3641f42b\",\n    \"name\": \"peter pan\",\n    \"email\": \"peter23@gmail.com\",\n    \"password\": \"$2b$10$Prp3zNDj9XDqHlog1D3VOudaeRxkpDNOV90tqa9u3soQ7suHtgpTy\",\n    \"created\": \"2020-10-20T04:16:48.225Z\",\n    \"__v\": 0\n}"
+				},
+				{
+					"name": "welcome ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/map/",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"map",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"26-FQPIhfDwIQCHRpPCVn/jPRtQU5k\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 08:21:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "\"**** Welcome to Minesweeper-api ****\""
 				}
 			]
 		}
