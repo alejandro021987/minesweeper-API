@@ -29,4 +29,4 @@ mongoose.connect(`${process.env.DATABASE_URL}`,mongoOptions)
     .then(() => console.log("MongoDB conected ..."))
     .catch(err => console.log(err));
 //START SERVER
-app.listen(3000)
+app.listen(3050)

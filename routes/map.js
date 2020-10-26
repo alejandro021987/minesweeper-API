@@ -15,10 +15,10 @@ router.post('/create-map',async (req,res)=>{
         let cells = mapController.createMap(mapSize, mapSize);
         cells = mapController.fillMap(cells, constants.messages.BOMB , req.body.bombCount );
         cells = mapController.adjacentCellsValues(cells, constants.messages.BOMB);
-        req.map = await mapController.saveMap(mapSize, bombCount, cells);
+        req.map =  mapController.saveMap(mapSize, bombCount, cells);
 
         var userProfile = jwt_decode(req.headers.authorization);
-        await userController.updateUser(userProfile.userId, {map_id: req.map._id});
+        userController.updateUser(userProfile.userId, {map_id: req.map._id});
         res.json(req.map);
     } catch (error) {
         res.json({message : error})
@@ -78,4 +78,18 @@ router.post('/update-map',async (req,res)=>{
         res.json({message : error})
     }
 });
+
+router.get('/get-map/:id',async (req,res)=>{
+    try {
+        let { id } = req.params;
+        req.map = await mapController.getMap(id);
+        res.status(201).json(req.map);
+
+    } catch (error) {
+        res.json({message : error})
+    }
+});
+
+
+
 module.exports = router;

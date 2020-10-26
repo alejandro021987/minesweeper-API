@@ -57,7 +57,7 @@ const addOneNestedArrAdjacents = ( map, i,j, val) => {
   return map;
 }
 
-const saveMap = async (mapSize, bombCount, cells, selectedCells=0, _id) => {
+const saveMap = (mapSize, bombCount, cells, selectedCells=0, _id) => {
   const data = {
     mapSize,
     bombCount,
@@ -75,9 +75,20 @@ const saveMap = async (mapSize, bombCount, cells, selectedCells=0, _id) => {
   return map;
 }
 
+const getMap = (_id) => {
+  let map = {};
+  if (_id){
+    map = MapModel.findOne({_id }).exec();
+  }
+  return map;
+}
+
+
+
 module.exports = {
   createMap,
   fillMap,
   adjacentCellsValues,
-  saveMap
+  saveMap,
+  getMap
 }
